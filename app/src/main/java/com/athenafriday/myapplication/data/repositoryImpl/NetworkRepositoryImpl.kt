@@ -31,7 +31,8 @@ class NetworkRepositoryImpl(
             cacheKey?.let { cache[it] = response as Any }
             emit(NetworkResult.Success(response))
         } catch (e: Exception) {
-
+            val message = "Error"
+            emit(NetworkResult.Error(message))
         }
     }.flowOn(dispatcher)
 }
